@@ -1,13 +1,14 @@
-# modified node to allow direct prompt injection directly to SDXL blocks please support me and future projects on https://ko-fi.com/311_code, 
-# Next release will be SVD 1.1 video model injections and svd_img2vid_conditioning_advanced with clip and image embedding injections (works and testing currently)
+           
+# Please support me on https://ko-fi.com/311_code
 
 import comfy.model_patcher
 import comfy.samplers
 import torch
 import torch.nn.functional as F
-from nodes import CLIPTextEncode # this import needed for clip and cliptextencode in the node
+from nodes import CLIPTextEncode
 
-class PromptInjection:
+
+class MagicInjection:
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -16,7 +17,6 @@ class PromptInjection:
                 "clip": ("CLIP",)
             },
             "optional": {
-                "all_text": ("STRING", {"multiline": True, "dynamicPrompts": True}),
                 "input_4_text": ("STRING", {"multiline": True, "dynamicPrompts": True}),
                 "input_4_weight": ("FLOAT", {"default": 1.0, "min": -2.0, "max": 5.0, "step": 0.05}),
                 "input_5_text": ("STRING", {"multiline": True, "dynamicPrompts": True}),
@@ -49,8 +49,8 @@ class PromptInjection:
 
     CATEGORY = "advanced/model"
 
-    def patch(self, model: comfy.model_patcher.ModelPatcher, clip, all_text=None, input_4_text=None, input_4_weight=1.0, input_5_text=None, input_5_weight=1.0, input_7_text=None, input_7_weight=1.0, input_8_text=None, input_8_weight=1.0, middle_0_text=None, middle_0_weight=1.0, output_0_text=None, output_0_weight=1.0, output_1_text=None, output_1_weight=1.0, output_2_text=None, output_2_weight=1.0, output_3_text=None, output_3_weight=1.0, output_4_text=None, output_4_weight=1.0, output_5_text=None, output_5_weight=1.0, weight=1.0, start_at=0.0, end_at=1.0):
-        if not any((all_text, input_4_text, input_5_text, input_7_text, input_8_text, middle_0_text, output_0_text, output_1_text, output_2_text, output_3_text, output_4_text, output_5_text)):
+    def patch(self, model: comfy.model_patcher.ModelPatcher, clip, input_4_text=None, input_4_weight=1.0, input_5_text=None, input_5_weight=1.0, input_7_text=None, input_7_weight=1.0, input_8_text=None, input_8_weight=1.0, middle_0_text=None, middle_0_weight=1.0, output_0_text=None, output_0_weight=1.0, output_1_text=None, output_1_weight=1.0, output_2_text=None, output_2_weight=1.0, output_3_text=None, output_3_weight=1.0, output_4_text=None, output_4_weight=1.0, output_5_text=None, output_5_weight=1.0, weight=1.0, start_at=0.0, end_at=1.0):
+        if not any((input_4_text, input_5_text, input_7_text, input_8_text, middle_0_text, output_0_text, output_1_text, output_2_text, output_3_text, output_4_text, output_5_text)):
             return (model,)
 
         def encode_text(clip, text):
@@ -67,11 +67,6 @@ class PromptInjection:
             if text is not None:
                 conditioning = encode_text(clip, text)[0]
                 patchedBlocks[f"{block}:{index}"] = (conditioning, weight)
-
-        if all_text is not None:
-            for block in ['input', 'middle', 'output']:
-                for index in range(9):
-                    add_patch(block, index, all_text, weight)
 
         add_patch('input', 4, input_4_text, input_4_weight)
         add_patch('input', 5, input_5_text, input_5_weight)
@@ -112,10 +107,13 @@ def build_patch(patchedBlocks, sigma_start=0.0, sigma_end=1.0):
         return n, context_attn1, value_attn1
     return prompt_injection_patch
 
+
+
 NODE_CLASS_MAPPINGS = {
-    "PromptInjection": PromptInjection
+    "MagicInjection": MagicInjection
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "PromptInjection": "Attn2 Prompt Injection"
+    "MagicInjection": "Magic Prompt Injection - SDXL"
 }
+           
