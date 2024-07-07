@@ -17,9 +17,9 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
 ## Features
 
 - **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
-- **SDXL Block Prompting**: Directly prompt SDXL blocks and indivual block stengths for more precise control over video content.
+- **SDXL Block Prompting**: Directly prompt SDXL blocks and individual block strengths for more precise control over image content.
 - **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
-- **Magic Model Injector**: A forthcoming feature to inject SD3 weights and bias layers, improvements for common issues like the "woman in grass" problem.
+- **Magic Model Injector**: A forthcoming feature to inject SD3 weights and bias layers, improvements on common issues like the "woman in grass" problem.
 
 ## How to Use
 
@@ -54,9 +54,9 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
 
 PS. I am working on a node that will do all of this and more, injecting SD3 weights and bias layers to fix common issues (like the woman in grass). This upcoming feature is called **Magic Model Injector**.
 
-![Magic Model Injector](https://github.com/DataCTE/prompt_injection/assets/23625562/8cb1cc9b-5271-477d-9a3d-64a35c16d231)
+![Magic Model Injector Coming Soon..](https://github.com/brentjohnston/prompt_injection_advanced/)
 
-> *Don't ask me why the woman shows up in a bikini when you corrupt certain SD3 joint block layers!*
+> *Don't ask me why the woman shows up in a bikini when you corrupt certain SD3 joint block layers! Maybe it breaks some ablation.*
 
 ## Support Me
 
