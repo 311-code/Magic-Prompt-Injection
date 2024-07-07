@@ -26,14 +26,15 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
 1. **Download and Install**:
     - **Option 1**: Download the ZIP file from the repository and extract it:
       ```sh
-      cd path/to/ComfyUI/custom_nodes
-      wget https://github.com/brentjohnston/prompt_injection_advanced/archive/refs/heads/main.zip
-      unzip main.zip -d prompt_injection_advanced
+      Place in /ComfyUI/custom_nodes
       ```
     - **Option 2**: Clone the repository directly into the `ComfyUI\custom_nodes` directory:
       ```sh
-      cd path/to/ComfyUI/custom_nodes
+      Install git https://git-scm.com/downloads
+      cd to ComfyUI/custom_nodes
       git clone https://github.com/brentjohnston/prompt_injection_advanced.git
+      Search for attn2 prompt injection node, search for zerooutconditioning node and add it.
+      Zero out conditioning to positive and negative prompt to ksampler. Use this node instead to prompt.
       ```
 
 2. **Setup**: Ensure you have ComfyUI installed and properly configured.
