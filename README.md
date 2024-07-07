@@ -16,10 +16,10 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
 
 ## Features
 
-- **Advanced Prompt Injection**: Leverage state-of-the-art techniques for text-to-video generation, ensuring better control and significantly reducing unwanted outputs.
-- **SDXL Block Prompting**: Directly prompt SDXL blocks for more precise control over video content.
+- **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
+- **SDXL Block Prompting**: Directly prompt SDXL blocks and indivual block stengths for more precise control over video content.
 - **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
-- **Magic Model Injector**: A forthcoming feature to inject SD3 weights and bias layers, fixing common issues like the "woman in grass" problem.
+- **Magic Model Injector**: A forthcoming feature to inject SD3 weights and bias layers, improvements for common issues like the "woman in grass" problem.
 
 ## How to Use
 
