@@ -52,7 +52,7 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
 
 ## Preview of Magic Model Injector
 
-PS. I am working on a node that will do all of this and more, injecting SD3 weights and bias layers to fix common issues (like the woman in grass). This upcoming feature is called **Magic Model Injector**.
+PS. I am working on a node that will do all of this and more, injecting SD3 weights and bias layers to fix common issues (like the woman in grass). This upcoming node is called **Magic Model Injector**.
 
 Magic Model Injector Coming Soon.. ![preview_magic_model_injector](https://github.com/DataCTE/prompt_injection/assets/23625562/83d84b79-1372-4891-9c53-238f769e637b)
 
