@@ -1,38 +1,15 @@
-# Prompt Injection Node for ComfyUI
+Comfyui Prompt injection:
 
-This custom node for ComfyUI allows you to inject specific prompts at specific blocks of the Stable Diffusion UNet, providing fine-grained control over the generated image. It is based on the concept that the content/subject understanding of the model is primarily contained within the MID0 and MID1 blocks, as demonstrated in the B-Lora (Content Style implicit separation) paper.
-Features
+Please support me on ko-fi https://ko-fi.com/311_code
 
-Inject different prompts into specific UNet blocks
-Three different node variations for flexible workflow integration
-Customize the learning rate of specific blocks to focus on content, lighting, style, or other aspects
-Potential for developing a "Mix of Experts" approach by swapping blocks on-the-fly based on prompt content
+![promptinjection](https://github.com/DataCTE/prompt_injection/assets/23625562/25d61586-935d-4afa-9709-6874f3e62783)
 
-# Usage
+This node is for SDXL and will allow for prompting SDXL blocks directly for better control and heavily reducing nightmare outputs.
 
-Add the prompt_injection.py node to your ComfyUI custom nodes directory
-In your ComfyUI workflow, connect the desired node variation based on your input preferences
-Specify the prompts for each UNet block you want to customize
-Connect the output to the rest of your workflow and generate the image
+I recommend using Nvidia Align your steps scheduler attached to a samplercustomadvanced in comfyui, connect the guider. Use conditioningzeroout on positive and negative.
 
-# Node Variations
+PS. I am working on a node that will do all of this and more, inject SD3 weights and bias layers (to fix woman in grass) called Magic Model Injector
 
-Prompt Injection (Single Prompt): Injects a single prompt into the specified UNet blocks
-Prompt Injection (Multiple Prompts): Allows injecting different prompts into each specified UNet block
-Prompt Injection (Prompt Dictionary): Accepts a dictionary of block names and their corresponding prompts
+Preview of Magic Model Injector (don't ask me why the woman shows up in a bikini when you corrupt certain SD3 joint block layers):
 
-# Example
-Injecting the prompt "white cat" into the OUTPUT0 and OUTPUT1 blocks, while using the prompt "blue dog" for all other blocks, results in an image with the composition of the "blue dog" prompt but with a cat as the subject/content.
-Acknowledgements
-
-Modified and simplified version of the node from: https://github.com/pamparamm/sd-perturbed-attention
-Inspired by discussions and findings shared by @Mobioboros and @DataVoid
-
-# Future Work
-
-Investigate the location of different concepts (e.g., lighting) within the UNet blocks
-Develop a "guts diagram" of the SDXL UNet to understand where each aspect is stored
-Explore the use of different learning rates for specific blocks during fine-tuning or LoRA training
-Implement a "Mix of Experts" approach by swapping blocks on-the-fly based on prompt content
-
-Feel free to contribute, provide feedback, and share your findings!
+![prompandimageinjectionsd3](https://github.com/DataCTE/prompt_injection/assets/23625562/8cb1cc9b-5271-477d-9a3d-64a35c16d231)
