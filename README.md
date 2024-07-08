@@ -19,7 +19,7 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
 - **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
 - **SDXL Block Prompting**: Directly prompt SDXL blocks and individual block strengths for more precise control over image content.
 - **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
-- **Magic Model Injector**: A forthcoming feature to inject SD3 weights and bias layers, improvements on common issues like the "woman in grass" problem.
+- **Magic Model Injector**: A forthcoming node to inject SD3 weights and bias layers, improvements on common issues like the "woman in grass" problem. A sort of "swiss army knife" node.
 
 ## How to Use
 
@@ -28,35 +28,30 @@ Welcome to the **ComfyUI Prompt Injection** repository! This project integrates 
       ```sh
       Place in /ComfyUI/custom_nodes
       ```
-    - **Option 2**: Clone the repository directly into the `ComfyUI\custom_nodes` directory:
+    - **Option 2**: Clone the repository directly into the `ComfyUI\custom_nodes` directory (Windows):
       ```sh
       Install git https://git-scm.com/downloads
-      cd to ComfyUI/custom_nodes
+      cd to ComfyUI/custom_nodes go to top of explorer and type "cmd"
       git clone https://github.com/brentjohnston/prompt_injection_advanced.git
-      Search for attn2 prompt injection node, search for zerooutconditioning node and add it.
-      Zero out conditioning to positive and negative prompt to ksampler. Use this node instead to prompt.
+      Start comfyui and load the example workflow
+      Zerooutconditioning to positive and negative prompt to ksampler. Use this node instead to prompt, but you can do it either way.
       ```
-
-2. **Setup**: Ensure you have ComfyUI installed and properly configured.
-
-3. **Integrate**: Connect the `samplercustomadvanced` and `conditioningzeroout` nodes for both positive and negative conditioning.
-
-4. **Run**: Execute your ComfyUI workflow with the integrated prompt injection nodes for enhanced video generation.
 
 ## Recommended Configuration
 
 - **Scheduler**: Use Nvidia Align your steps scheduler.
 - **Sampler**: Attach to a samplercustomadvanced in ComfyUI.
-- **Guider**: Connect the guider for optimal performance.
+- **Guider**: Connect the guider and other requirements of samplercustomadvanced.
 - **Conditioning**: Use conditioningzeroout on both positive and negative prompts.
+- **Connect Node**: Connect the Magic Prompt Injection node and start promping directly to unet blocks in the model.
 
 ## Preview of Magic Model Injector
 
-PS. I am working on a node that will do all of this and more, injecting SD3 weights and bias layers to fix common issues (like the woman in grass). This upcoming node is called **Magic Model Injector**.
+PS. I am working on another more advanced node (that will do all of this and more). It injects SD3 weights and bias layers to fix common issues (like the woman in grass). This upcoming node is called **Magic Model Injector**.
 
 Magic Model Injector Coming Soon.. ![preview_magic_model_injector](https://github.com/DataCTE/prompt_injection/assets/23625562/83d84b79-1372-4891-9c53-238f769e637b)
 
-> *Don't ask me why the woman shows up in a bikini when you corrupt certain SD3 joint block layers! Maybe it breaks some ablation.*
+> *Don't ask me why the woman shows up in a bikini when you corrupt certain SD3 joint block layers! Maybe it breaks some sort of ablation. Quality is bad for now and I will attempt to fix it.*
 
 ## Support Me
 
@@ -66,7 +61,7 @@ Creating and maintaining this project takes a lot of effort and dedication. If y
   <a href="https://ko-fi.com/311_code" target="_blank"><img src="https://img.shields.io/badge/Support%20Me-Ko--Fi-red?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Support me on Ko-Fi"></a>
 </p>
 
-Your support helps me keep this project alive and continually improve it.
+Your support helps me keep these projects alive and continually improve it.
 
 ## Contributing
 
