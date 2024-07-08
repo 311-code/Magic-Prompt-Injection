@@ -12,7 +12,7 @@
 
 Welcome. This project integrates advanced prompt injection techniques with the ComfyUI framework to enhance your AI image generation capabilities. 
 
-The image above has a blurry background because the block that controls background was disabled and not prompted!
+The image above has a blurry background because the block that controls background was disabled and not prompted! Another example coming soon with more detailed prompt.
 
 ## 🔮 Features
 
