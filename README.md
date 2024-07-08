@@ -4,9 +4,6 @@
 
 <p align="center">
   <a href="https://ko-fi.com/311_code"><img src="https://img.shields.io/badge/Support%20Me-Ko--Fi-red?style=for-the-badge&logo=ko-fi&logoColor=white" alt="Support me on Ko-Fi"></a>
-  <a href="https://github.com/your-username/ComfyUI-Magic-Prompt-Injection/releases"><img src="https://img.shields.io/github/v/release/your-username/ComfyUI-Magic-Prompt-Injection?style=for-the-badge&color=blue" alt="GitHub AI Video Injection Releases (Coming Soon)"></a>
-  <a href="https://github.com/brentjohnston/prompt_injection_advanced"><img src="https://img.shields.io/github/issues/your-username/ComfyUI-Magic-Prompt-Injection?style=for-the-badge" alt="GitHub Issues"></a>
-</p>
 
 ## ✨ Introduction
 
