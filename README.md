@@ -45,7 +45,9 @@ The image above has a blurry background because background was disabled and not 
 
 ## 🔮 Preview of Magic Model Injector
 
-PS. I am working on another more advanced node (that will do all of this and more). It injects SD3 weights and bias layers to help mitigate common issues (like the woman in grass nightmares). This upcoming node is called **Magic Model Injector**.
+PS. I am working on another more advanced node (that will do all of this and lot more). It injects SD3 weights and bias layers to help mitigate common issues like the woman in grass nightmare limbs SD3. This upcoming ptoject is called **Magic Model Injector**.
+
+Disclaimer: This came out a bit lewd somehow, apologies ahead of time.
 
 Magic Model Injector Coming Soon.. ![preview_magic_model_injector](https://github.com/DataCTE/prompt_injection/assets/23625562/83d84b79-1372-4891-9c53-238f769e637b)
 
