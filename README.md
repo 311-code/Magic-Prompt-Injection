@@ -14,7 +14,7 @@ The image above has a blurry background because the block that controls backgrou
 ## 🔮 Features
 
 - 🪄 **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
-- 🪄 **SDXL Block Prompting**: Directly prompt SDXL blocks and individual block strengths for more precise control over image content. User two conditioning zero out nodes for full utilization (workflow coming)
+- 🪄 **SDXL Block Prompting**: Directly prompt an SDXL model's unet blocks, set individual block strengthfor precise control over image content. set two conditioning zero out nodes for full utilization (workflow coming)
 - 🪄 **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
 - 🪄 **Magic Model Injector**: A forthcoming node to inject SD3 weights and bias layers, improving common issues like the "woman in grass" problem. A sort of "swiss army knife" node.
 
