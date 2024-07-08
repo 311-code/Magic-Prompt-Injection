@@ -9,14 +9,14 @@
 
 Welcome. This project integrates advanced prompt injection techniques with the ComfyUI framework to enhance your AI image generation capabilities. 
 
-The image above has a blurry background because background was disabled and not prompted! Another example coming soon with more detailed prompt.
+The image above has a blurry background because background was disabled and not prompted! Another example coming soon with a more detailed prompt.
 
 ## 🔮 Features
 
 - 🪄 **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
-- 🪄 **SDXL Block Prompting**: Directly prompt an SDXL model's unet blocks, set individual block strength for precise control over image content. Use two conditioning zero out nodes for full utilization (workflow coming)
-- 🪄 **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
-- 🪄 **Magic Model Injector**: A forthcoming node to inject SD3 weights and bias layers, improving common issues like the "woman in grass" problem. A sort of "swiss army knife" node.
+- 🪄 **SDXL Block Prompting**: Directly prompt an SDXL model's unet blocks and set individual block strengths, for precise control over image content. Use two conditioning zero out nodes for full utilization (workflow coming)
+- 🪄 **Enhanced Scheduler Integration**: Recommended to use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
+- 🪄 **Magic Model Injector**: A forthcoming node to inject SD3 weights and bias layers, improving common issues like the "woman in grass" problem. this is sort of "swiss army knife" nodes and does many other things, such as batch images latent injection at one time to a tensor or latent and squeezing it all in.
 
 ## 🛠️ How to Use
 
@@ -33,7 +33,7 @@ The image above has a blurry background because background was disabled and not 
       Start comfyui and load the example workflow
       Zerooutconditioning to positive and negative prompt to ksampler. Use this node instead to prompt, but you can do it either way.
       ```
-    - **or option 3 Linux users**: You know what to do.
+    - **or option 3 Linux users**: You know what to do!
 
 ## ⚙️ Recommended Configuration
 
