@@ -14,12 +14,12 @@ Welcome. This project integrates advanced prompt injection techniques with the C
 
 The image above has a blurry background because the block that controls background was disabled and not prompted!
 
-## 🌟 Features (and free emoji use!)
+## 🔮 Features
 
 - 🪄 **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
-- 🔍 **SDXL Block Prompting**: Directly prompt SDXL blocks and individual block strengths for more precise control over image content. User two conditioning zero out nodes for full utilization (workflow coming)
-- 🚀 **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
-- 🧙 **Magic Model Injector**: A forthcoming node to inject SD3 weights and bias layers, improving common issues like the "woman in grass" problem. A sort of "swiss army knife" node.
+- 🪄 **SDXL Block Prompting**: Directly prompt SDXL blocks and individual block strengths for more precise control over image content. User two conditioning zero out nodes for full utilization (workflow coming)
+- 🪄 **Enhanced Scheduler Integration**: Use Nvidia Align your steps scheduler with a samplercustomadvanced in ComfyUI for optimal results.
+- 🪄 **Magic Model Injector**: A forthcoming node to inject SD3 weights and bias layers, improving common issues like the "woman in grass" problem. A sort of "swiss army knife" node.
 
 ## 🛠️ How to Use
 
@@ -64,10 +64,10 @@ Creating and maintaining this project takes a lot of effort and dedication. If y
 
 Your support helps me keep these projects alive and continually improve it.
 
-## 🤝 Contributing (more emojis, how do you like this one?)
+## 🤝 Contributing
 
 Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
 
-## 📜 License (zzz)
+## 📜 License
 
 This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
