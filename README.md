@@ -14,7 +14,7 @@ Welcome. This project integrates advanced prompt injection techniques with the C
 
 The image above has a blurry background because the block that controls background was disabled and not prompted!
 
-## 🌟 Features (and free excessive emoji use!)
+## 🌟 Features (and free emoji use!)
 
 - 🪄 **Advanced Prompt Injection**: Leverage state-of-the-art techniques for prompt injection of SDXL-based models, ensuring better control and significantly reducing unwanted outputs.
 - 🔍 **SDXL Block Prompting**: Directly prompt SDXL blocks and individual block strengths for more precise control over image content. User two conditioning zero out nodes for full utilization (workflow coming)
