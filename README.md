@@ -36,6 +36,7 @@ Welcome to the **ComfyUI Magic Prompt Injection** repository! This project integ
       Start comfyui and load the example workflow
       Zerooutconditioning to positive and negative prompt to ksampler. Use this node instead to prompt, but you can do it either way.
       ```
+    - **Linux users**: You know what to do.
 
 ## ⚙️ Recommended Configuration
 
