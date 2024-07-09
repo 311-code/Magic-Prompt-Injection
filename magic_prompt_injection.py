@@ -1,5 +1,4 @@
-           
-# Please support me on https://ko-fi.com/311_code
+# Please support 311_code on https://ko-fi.com/311_code
 
 import comfy.model_patcher
 import comfy.samplers
