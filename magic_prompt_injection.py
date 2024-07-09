@@ -113,6 +113,6 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "MagicInjection": "Magic Prompt Injection - SDXL"
+    "MagicInjection": "Magic Prompt Injection 311_code"
 }
            
