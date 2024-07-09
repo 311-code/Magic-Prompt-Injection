@@ -49,7 +49,7 @@ PS. I am working on another more advanced node (that will do all of this and lot
 
 Disclaimer: This came out a bit lewd somehow, apologies ahead of time.
 
-Magic Model Injector Coming Soon.. ![preview_magic_model_injector](https://github.com/DataCTE/prompt_injection/assets/23625562/83d84b79-1372-4891-9c53-238f769e637b)
+Magic Model Injector Coming Soon with SD3 support.. ![preview_magic_model_injector](https://github.com/DataCTE/prompt_injection/assets/23625562/83d84b79-1372-4891-9c53-238f769e637b)
 
 > *Don't ask me why the woman shows up in a bikini.. it happened when I inject certain SD3 joint block layers with real women in grass! Maybe it breaks some sort of ablation, I dunno. Quality is bad for now and I will attempt to fix it before release.*
 
