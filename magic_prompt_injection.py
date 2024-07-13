@@ -4,8 +4,19 @@ import comfy.model_patcher
 import comfy.samplers
 import torch
 import torch.nn.functional as F
-from nodes import CLIPTextEncode
 
+class CLIPTextEncode:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {"required": {"text": ("STRING", {"multiline": True, "dynamicPrompts": True}), "clip": ("CLIP",)}}
+    RETURN_TYPES = ("CONDITIONING",) 
+    FUNCTION = "encode"
+    CATEGORY = "conditioning"
+
+    def encode(self, clip, text):
+        tokens = clip.tokenize(text)
+        cond, pooled = clip.encode_from_tokens(tokens, return_pooled=True)
+        return ([cond, {"pooled_output": pooled}],)
 
 class MagicInjection:
     @classmethod
@@ -16,6 +27,7 @@ class MagicInjection:
                 "clip": ("CLIP",)
             },
             "optional": {
+                "prompt_for_conditioning": ("STRING", {"multiline": True, "dynamicPrompts": True}),
                 "input_4_text": ("STRING", {"multiline": True, "dynamicPrompts": True}),
                 "input_4_weight": ("FLOAT", {"default": 1.0, "min": -2.0, "max": 5.0, "step": 0.05}),
                 "input_5_text": ("STRING", {"multiline": True, "dynamicPrompts": True}),
@@ -43,18 +55,14 @@ class MagicInjection:
             }
         }
 
-    RETURN_TYPES = ("MODEL",)
+    RETURN_TYPES = ("MODEL", "CONDITIONING")
+    RETURN_NAMES = ("MODEL", "NOT_USED_YET")
     FUNCTION = "patch"
-
     CATEGORY = "advanced/model"
 
-    def patch(self, model: comfy.model_patcher.ModelPatcher, clip, input_4_text=None, input_4_weight=1.0, input_5_text=None, input_5_weight=1.0, input_7_text=None, input_7_weight=1.0, input_8_text=None, input_8_weight=1.0, middle_0_text=None, middle_0_weight=1.0, output_0_text=None, output_0_weight=1.0, output_1_text=None, output_1_weight=1.0, output_2_text=None, output_2_weight=1.0, output_3_text=None, output_3_weight=1.0, output_4_text=None, output_4_weight=1.0, output_5_text=None, output_5_weight=1.0, weight=1.0, start_at=0.0, end_at=1.0):
+    def patch(self, model: comfy.model_patcher.ModelPatcher, clip, prompt_for_conditioning=None, input_4_text=None, input_4_weight=1.0, input_5_text=None, input_5_weight=1.0, input_7_text=None, input_7_weight=1.0, input_8_text=None, input_8_weight=1.0, middle_0_text=None, middle_0_weight=1.0, output_0_text=None, output_0_weight=1.0, output_1_text=None, output_1_weight=1.0, output_2_text=None, output_2_weight=1.0, output_3_text=None, output_3_weight=1.0, output_4_text=None, output_4_weight=1.0, output_5_text=None, output_5_weight=1.0, weight=1.0, start_at=0.0, end_at=1.0):
         if not any((input_4_text, input_5_text, input_7_text, input_8_text, middle_0_text, output_0_text, output_1_text, output_2_text, output_3_text, output_4_text, output_5_text)):
             return (model,)
-
-        def encode_text(clip, text):
-            encoder = CLIPTextEncode()
-            return encoder.encode(clip, text)
 
         m = model.clone()
         sigma_start = m.get_model_object("model_sampling").percent_to_sigma(start_at)
@@ -64,7 +72,7 @@ class MagicInjection:
 
         def add_patch(block, index, text, weight):
             if text is not None:
-                conditioning = encode_text(clip, text)[0]
+                conditioning = CLIPTextEncode().encode(clip, text)[0][0]  # Ensure the text is encoded using the external class
                 patchedBlocks[f"{block}:{index}"] = (conditioning, weight)
 
         add_patch('input', 4, input_4_text, input_4_weight)
@@ -81,7 +89,12 @@ class MagicInjection:
 
         m.set_model_attn2_patch(build_patch(patchedBlocks, sigma_start=sigma_start, sigma_end=sigma_end))
 
-        return (m,)
+        if prompt_for_conditioning:
+            conditioning = CLIPTextEncode().encode(clip, prompt_for_conditioning)[0][0]
+        else:
+            conditioning = None
+
+        return (m, conditioning)
 
 def build_patch(patchedBlocks, sigma_start=0.0, sigma_end=1.0):
     def prompt_injection_patch(n, context_attn1: torch.Tensor, value_attn1, extra_options):
@@ -92,27 +105,39 @@ def build_patch(patchedBlocks, sigma_start=0.0, sigma_end=1.0):
 
         if sigma <= sigma_start and sigma >= sigma_end:
             if (block and f'{block}:{block_index}' in patchedBlocks and patchedBlocks[f'{block}:{block_index}']):
-                conditioning, weight = patchedBlocks[f'{block}:{block_index}']
                 if context_attn1.dim() == 3:
                     c = context_attn1[0].unsqueeze(0)
                 else:
                     c = context_attn1[0][0].unsqueeze(0)
-                b = conditioning[0][0].repeat(c.shape[0], 1, 1).to(context_attn1.device)
-                out = torch.stack((c, b)).to(dtype=context_attn1.dtype) * weight
-                out = out.repeat(1, batch_prompt, 1, 1) * weight
+                b = patchedBlocks[f'{block}:{block_index}'][0].repeat(c.shape[0], 1, 1).to(context_attn1.device)
+                out = torch.stack((c, b)).to(dtype=context_attn1.dtype) * patchedBlocks[f'{block}:{block_index}'][1]
+                out = out.repeat(1, batch_prompt, 1, 1)
 
-                return n, out, out
+                return n, out, out 
 
         return n, context_attn1, value_attn1
     return prompt_injection_patch
 
+class ConditioningOnlyNode:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {"required": {"prompt_for_conditioning": ("STRING", {"multiline": True, "dynamicPrompts": True}), "clip": ("CLIP",)}}
+    RETURN_TYPES = ("CONDITIONING",)
+    FUNCTION = "generate_conditioning"
+    CATEGORY = "conditioning"
 
+    def generate_conditioning(self, clip, prompt_for_conditioning):
+        encoder = CLIPTextEncode()
+        conditioning = encoder.encode(clip, prompt_for_conditioning)[0][0]
+        return (conditioning,)
 
 NODE_CLASS_MAPPINGS = {
-    "MagicInjection": MagicInjection
+    "MagicInjection": MagicInjection,
+    "ConditioningOnlyNode": ConditioningOnlyNode
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "MagicInjection": "Magic Prompt Injection 311_code"
+    "MagicInjection": "Magic Prompt Injection 311_code",
+    "ConditioningOnlyNode": "Conditioning Only"
 }
            
