@@ -43,7 +43,7 @@ The image above has a blurry background because layer that has background was di
 - **Conditioning**: Use conditioningzeroout on both positive and negative prompts.
 - **Connect Node**: Connect the Magic Prompt Injection node and start prompting directly to unet blocks in the model. decrease and increase weights per layer.
 
-## 🔮 Preview of Magic Model Injector SD3, SDXL, and Flux
+## 🔮 Preview of Magic Model Injector SD3, SDXL, and soon Flux
 
 PS. I am working on another more advanced node (that will do all of this and lot more). It injects SD3 weights and bias layers to help mitigate common issues like the woman in grass nightmare limbs SD3 or model ablation. This upcoming ptoject is called **Magic Model Injector**.
 
