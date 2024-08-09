@@ -9,7 +9,7 @@
 
 This project integrates advanced prompt injection techniques with the ComfyUI framework to enhance your SDXL and SD 1.5 based AI image generation capabilities. 
 
-The image above has a blurry background because layer that has background was disabled and not prompted! Another example coming soon with a more detailed prompt.
+The image above has a blurry background because the layers that affect it were disabled! Another example coming soon with a more detailed prompt.
 
 ## 🔮 Features
 
