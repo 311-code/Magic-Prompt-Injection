@@ -45,7 +45,7 @@ The image above has a blurry background because layer that has background was di
 
 ## 🔮 Preview of Magic Model Injector SD3, SDXL, and soon Flux
 
-PS. I am working on another more advanced node (that will do all of this and lot more). It injects SD3 weights and bias layers to help mitigate common issues like the woman in grass nightmare limbs SD3 or model ablation. This upcoming ptoject is called **Magic Model Injector**.
+PS. I am working on another more advanced node (that will do all of this and lot more). It injects SD3 weights and bias layers to help mitigate common issues like the woman in grass nightmare limbs SD3 or model ablation. This upcoming project is called **Magic Model Injector**.
 
 Disclaimer: This came out a bit lewd somehow, apologies ahead of time. SD3 example:
 
